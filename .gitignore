@@ -1,0 +1,11 @@
+Private/
+*.tex
+!Template/CV_Template.tex
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.png
+.DS_Store

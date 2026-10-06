@@ -1,0 +1,97 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[default]{sourcesanspro}
+\usepackage{microtype}
+\usepackage[margin=0.75in,top=0.6in,bottom=0.7in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[table]{xcolor}
+\usepackage{xurl}
+\usepackage{needspace}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{hyperref}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\definecolor{cvAccent}{RGB}{56,115,179}
+\hypersetup{colorlinks=true,linkcolor=cvAccent,urlcolor=cvAccent,pdfborder={0 0 0},pdftitle={Curriculum Vitae},pdfauthor={Your Name}}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[R]{\footnotesize\itshape\color{black!45}\thepage/\pageref{LastPage}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedbottom
+\newlength{\cvdatew}
+\setlength{\cvdatew}{2.0cm}
+\titleformat{\section}[block]{\leftskip=\cvdatew\color{cvAccent}\Large\fontseries{l}\selectfont}{}{0pt}
+  {\llap{\rule[0.42ex]{\dimexpr\cvdatew-0.28cm\relax}{3.4pt}\hspace{0.28cm}}}
+\titlespacing*{\section}{0pt}{13pt}{5pt}
+\newenvironment{cvitems}{\small\begin{itemize}[leftmargin=\dimexpr\cvdatew+0.45cm\relax,labelindent=\cvdatew,labelwidth=0.27cm,labelsep=0.18cm,align=left,itemsep=1.5pt,topsep=2pt,parsep=0pt,partopsep=0pt,label={\textcolor{cvAccent}{\raisebox{0.02ex}{\footnotesize$\circ$}}}]}{\end{itemize}}
+\newcommand{\cvdate}[1]{\llap{\parbox[t]{\cvdatew}{\raggedleft\footnotesize #1\hspace*{8pt}}}}
+\newcommand{\cvhead}[2]{\needspace{4\baselineskip}{\leftskip=\cvdatew\noindent\cvdate{#2}\textbf{#1}\par}}
+\newcommand{\cvheadsrc}[3]{\needspace{4\baselineskip}{\leftskip=\cvdatew\noindent\cvdate{#2}\textbf{#1}\hfill{\normalfont\small\href{https://#3}{source}}\par}}
+\newcommand{\cvsub}[1]{{\leftskip=\cvdatew\noindent\small\textit{#1}\par}}
+\newcommand{\cvpar}[1]{{\leftskip=\cvdatew\noindent\small #1\par}}
+\newcommand{\cvgap}{\vspace{5pt}}
+\let\cvoldsection\section
+\renewcommand{\section}{\needspace{7\baselineskip}\cvoldsection}
+\emergencystretch=1.5em
+
+\begin{document}
+
+\noindent\begin{minipage}[t]{0.62\textwidth}
+  {\fontsize{25}{28}\fontseries{l}\selectfont Your Name}\\[3pt]
+  {\footnotesize\itshape Last updated Month Year}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.35\textwidth}\raggedleft\footnotesize
+  \href{mailto:name@example.com}{name@example.com}\\
+  \href{https://example.com}{Homepage}\\
+  GitHub: \href{https://github.com/username}{username}
+\end{minipage}\par\vspace{2pt}
+
+\section*{Education}
+\cvhead{University Name, City, Country}{Year--Year}
+\cvsub{Degree, Field of Study \textbullet\ expected Month Year}
+\begin{cvitems}
+  \item \textbf{Cumulative GPA: 0.00/0.00}. Short note on the grading scale or class standing.
+  \item \textbf{Relevant coursework (grade):} Course Title (00.0); Course Title (00.0); Course Title (00.0).
+\end{cvitems}
+
+\section*{Research Interests}
+\begin{cvitems}
+  \item First research area
+  \item Second research area
+  \item Third research area
+\end{cvitems}
+
+\section*{Projects}
+\cvheadsrc{Project Title}{Season Year}{example.com/repository}
+\cvsub{Course or context, Supervisor Name \textbullet\ Languages, tools}
+\begin{cvitems}
+  \item \textbf{Design:} One sentence describing the problem and your approach.
+  \item \textbf{Evaluation:} One sentence describing the results.
+  \item \textbf{Team:} Team size and your role.
+\end{cvitems}
+\cvgap
+\cvhead{Second Project Title}{Season Year}
+\cvsub{Course or context, Supervisor Name \textbullet\ Languages, tools}
+\begin{cvitems}
+  \item \textbf{Summary:} One sentence describing the work and its outcome.
+\end{cvitems}
+
+\section*{Teaching Experience}
+\cvhead{Teaching Assistant, Course Title}{Year--Year}
+\cvsub{University Name \textbullet\ Instructor Name}
+
+\section*{Technical Skills}
+\begin{cvitems}
+  \item \textbf{Languages:} Language, Language, Language.
+  \item \textbf{Tools:} Tool, Tool, Tool.
+\end{cvitems}
+
+\section*{Languages}
+\cvpar{Language (native); Language (level, test and score).}
+
+\end{document}
